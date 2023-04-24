@@ -1,0 +1,36 @@
+{
+  "variantId": "nadejensinod_vrana_attack",
+  "hullId": "nadejensinod_vrana",
+  "displayName": "Attack",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 24,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "blast_doors",
+    "reinforcedhull"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "heavyneedler",
+        "WS0002": "mark9",
+        "WS0003": "mark9",
+        "WS0004": "breachpod",
+        "WS0005": "breachpod",
+        "WS0006": "breachpod",
+        "WS0007": "lightdualmg",
+        "WS0008": "lightdualmg",
+        "WS0009": "lightdualmg",
+        "WS0010": "lightdualmg",
+        "WS0011": "lightdualmg",
+        "WS0012": "lightdualmg"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

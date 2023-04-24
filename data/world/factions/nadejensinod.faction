@@ -1,0 +1,240 @@
+{
+    id:"nadejensinod",
+
+    "color":[124,0,29,255],
+    "baseUIColor":[124,0,29,255],
+    "darkUIColor":[43,4,14,255],
+    "gridUIColor":[124,0,29,155],
+    "brightUIColor":[201,0,47,255],
+    "secondarySegments":0,
+
+	"entityNamePrefix":"Synod",
+	"personNamePrefix":"Synod",
+    "displayName":"Nadejen Synod",
+    "displayNameWithArticle":"the Nadejen Synod",
+    "displayNameLong":"Most Holy Synod of Nadeje",
+    "displayNameLongWithArticle":"the Most Holy Synod of Nadeje",
+    "displayNameIsOrAre":"is",
+	
+    "logo":"graphics/factions/nadejensinod.png",
+    "crest":"graphics/factions/crest_nadejensinod.png",
+
+    "shipNamePrefix":"NSS",
+    "shipNameSources":{
+		"ABRAHAMIC":2,
+		"BEASTS":1,
+		"EGYPTIAN":1,
+		"GREEK":1,
+		"SPACE":1,
+    },	
+
+    "names":{
+        "world":1,
+		"fringe":1,
+		"myth":1,
+		"luddic":1,
+		"modern":1,
+    },  	
+	
+	"variantOverrides":{
+	},  
+		
+	# multiplier for how often hulls show up in the faction's fleets
+	"hullFrequency":{
+		"tags":{
+			#"synod":2
+		},
+	},
+		
+		# ships the faction gets access to when importing S&W out-of-faction
+	"shipsWhenImporting":{
+		"tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
+		"hulls":["nadejensinod_vrana"
+		],
+	},
+	
+	"knownShips":{
+		"tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
+		"hulls":["nadejensinod_vrana"
+		],
+	},
+	
+	"priorityShips":{
+		"tags":["synod"],
+		"hulls":["nadejensinod_vrana"
+		],
+	},
+	
+	"knownFighters":{
+		"tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
+		"fighters":[
+		],
+	},
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+		],
+	},
+	"knownWeapons":{
+        "tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
+        "weapons":[
+        ],
+    },
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+		],
+	},
+	"knownHullMods":{
+		"tags":["base_bp"],
+		"hullMods":[
+		"dedicated_targeting_core",
+        "missleracks",
+        "reinforcedhull",
+        "heavyarmor",
+        "armoredweapons",
+        "blast_doors",
+        "ballistic_rangefinder",
+        "nav_relay",
+        "converted_hangar",
+        "armoredweapons",
+        "augmentedengines",
+        "insulatedengine",
+        "targetingunit",
+		],
+	},
+	"illegalCommodities":[
+		"organs", "drugs"
+	],
+
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":2,
+		"phaseShips":1,
+		
+		"officerQuality":3,
+		"shipQuality":2,
+		"numShips":2,
+		
+		"shipSize":3,
+		
+		"aggression":3,
+		
+		"combatFreighterProbability":0.1,      				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":0,  				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":0,   # as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.1,
+		
+		"commanderSkillsShuffleProbability":0,
+		"commanderSkills":[
+			"crew_training",
+			"officer_training",
+			"coordinated_maneuvers",
+			"support_doctrine",
+		],
+	},
+
+    "music":{
+            "theme":"music_luddite_market_neutral",
+            "market_neutral":"music_luddite_market_neutral",
+            "market_hostile":"music_luddite_market_hostile",
+            "market_friendly":"music_luddite_market_friendly",
+            "encounter_neutral":"music_luddite_encounter_neutral",
+            "encounter_hostile":"music_luddite_encounter_hostile",
+            "encounter_friendly":"music_luddite_encounter_friendly",
+    },
+
+    "portraits":{
+        "standard_male":[
+        			"graphics/portraits/portrait_mercenary01.png",
+        			"graphics/portraits/portrait_mercenary03.png",
+        			"graphics/portraits/portrait_mercenary04.png",
+        			"graphics/portraits/portrait_mercenary06.png",
+        			"graphics/portraits/portrait_mercenary08.png",
+        			"graphics/portraits/portrait12.png",
+        			"graphics/portraits/portrait13.png",
+        			"graphics/portraits/portrait15.png",
+        			"graphics/portraits/portrait17.png",
+        			"graphics/portraits/portrait18.png",
+        			"graphics/portraits/portrait20.png",
+        			"graphics/portraits/portrait23.png",
+        			"graphics/portraits/portrait25.png",
+        			"graphics/portraits/portrait26.png",
+        			"graphics/portraits/portrait30.png",
+        			"graphics/portraits/portrait31.png",
+        			"graphics/portraits/portrait33.png",
+        			"graphics/portraits/portrait35.png",
+        			"graphics/portraits/portrait36.png",
+        			"graphics/portraits/portrait40.png",
+        			"graphics/portraits/portrait43.png",
+        			"graphics/portraits/portrait44.png",
+        #			"graphics/portraits/characters/old_spacer02.png",
+        		],
+        		"standard_female":[
+        			"graphics/portraits/portrait_mercenary02.png",
+        			"graphics/portraits/portrait_mercenary05.png",
+        			"graphics/portraits/portrait14.png",
+        			"graphics/portraits/portrait16.png",
+        			"graphics/portraits/portrait21.png",
+        			"graphics/portraits/portrait22.png",
+        			"graphics/portraits/portrait27.png",
+        			"graphics/portraits/portrait28.png",
+        			"graphics/portraits/portrait29.png",
+        			"graphics/portraits/portrait32.png",
+        			"graphics/portraits/portrait34.png",
+        			"graphics/portraits/portrait37.png",
+        			"graphics/portraits/portrait39.png",
+        			"graphics/portraits/portrait41.png",
+        			"graphics/portraits/portrait42.png",
+        			"graphics/portraits/portrait45.png",
+        			"graphics/portraits/portrait46.png",
+        #			"graphics/portraits/characters/old_spacer01.png",
+        		],
+    },
+
+    "ranks":{
+    		"ranks":{
+    		},
+    		"posts":{
+    			"patrolCommander":{"name":"Armatolos"},
+    			"fleetCommander":{"name":"Palatine"},
+    			"stationCommander":{"name":"Palatine"},
+    			"baseCommander":{"name":"Stratigos"},
+    			"administrator":{"name":"Consul"},
+    			"genericMilitary":{"name":"Armatolos"},
+    		},
+    	},
+
+    "fleetTypeNames":{
+            "trade":"Trade Convoy",
+			"smallTrader":"Trader",
+			"tradeLiner":"Trade Caravan",
+            "patrolSmall":"Hajduki",
+            "patrolMedium":"Armatoloi",
+            "patrolLarge":"Palatine Fleet",
+			"mercScout":"Seeker",
+			"mercPatrol":"Crusader Patrol",
+			"mercArmada":"Crusader Fleet",
+			"taskForce":"Crusader Fleet",
+			"inspectionFleet":"Inquisitor Fleet",
+    },
+
+    "custom":{
+        "engageWhenEvenStrength":true,
+		"allowsTransponderOffTrade":false,
+		"offersCommissions":true,
+        "engagesInHostilities":true,
+        "buysAICores":true,
+        "AICoreValueMult":0.5,
+        "AICoreRepMult":2,
+        "buysSurveyData":true,
+		"caresAboutAtrocities":true,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
+			"territorial":true,
+		},
+
+    },
+}

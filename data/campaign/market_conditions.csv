@@ -1,0 +1,2 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+Nadejen Majority Faith,nadejensinod_nadejenmajority,,TRUE,data.scripts.campaign.econ.NadejenMajority,"Stability is improved if $market is controlled by the Nadejen Synod, otherwise it is reduced.",graphics/icons/markets/luddic_majority.png,143
