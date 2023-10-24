@@ -1,0 +1,24 @@
+{
+	# Synod ships
+	"combatSmall":{
+	},
+	"combatMedium":{
+	},
+	"combatLarge":{
+		"nadejensynod_vrana_assault":10,
+		"nadejensynod_sovuljaga_assault":2,
+
+	},
+	"combatCapital":{
+	},
+
+	# Carriers (aka oops, all Совуляга)
+	"carrierMedium":{
+		"nadejensynod_sovuljaga_assault":1,
+	},
+	"carrierLarge":{
+		"nadejensynod_sovuljaga_assault":6.5,
+		"nadejensynod_sovuljaga_suppression":3.5,
+	},
+	
+}

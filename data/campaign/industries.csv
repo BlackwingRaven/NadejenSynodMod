@@ -1,0 +1,4 @@
+id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
+yanicharheavyindustry,Yanichar Orbital Works,60,150,,12,,,"heavyindustry, uses_blueprints, industry, industrial",,graphics/icons/industry/orbital_works.png,sevenmere.nadejensynod.scripts.campaign.econ.YanicharHeavyIndustry,"Centralized manufacturing infrastructure for production of heavy industrial equipment, supplies, and weapons. Unlike the common Orbital Works encountered elsewhere in the sector, this will not accept a nanoforge.
+
+Yanichar station's repair bays where retrofitted according to Prophet's exacting and inexplicable instructions. The resulting facility's layout is best described as labyrinthine and its working procedures are heavily ritualized, and yet Yanichar's industrial output somehow manages to rival the forges of Chicomoztoc and Kazeron",1700,HIGH
