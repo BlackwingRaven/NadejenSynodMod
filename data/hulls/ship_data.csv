@@ -1,6 +1,6 @@
 name,id,designation,tech/manufacturer,tags,system id,fleet pts,hitpoints,armor rating,max flux,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,hints,breakProb,minPieces,maxPieces,number
-Vrana,nadejensinod_vrana,Heavy Cruiser,Synod,"synod",ammofeed,15,10000,1500,9000,500,175,,60,60,40,15,20,1200,FRONT,,180,0.4,0.85,,,150,230,150,100,3,8,120000,4,12,480,0.25,22,22,COMBAT,0.2,2,4,2
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Vrana,nadejensynod_vrana,Heavy Cruiser,Synod,"synod",ammofeed,15,10000,1500,9000,500,180,,60,60,40,15,20,1200,FRONT,,180,0.4,0.9,,,150,250,150,100,3,8,130000,4,12,480,0.25,25,25,COMBAT,0.2,2,4,2
+Sovuljaga,nadejensynod_sovuljaga,Heavy Carrier,Synod,"synod",ammofeed,17,14000,1650,11000,500,210,2,50,60,40,15,20,1200,FRONT,,180,0.4,0.9,,,150,300,200,150,4,8,150000,4,12,480,0.25,30,30,COMBAT,0.2,2,4,2
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,5 +1,5 @@
 {
-    id:"nadejensinod",
+    id:"nadejensynod",
 
     "color":[124,0,29,255],
     "baseUIColor":[124,0,29,255],
@@ -16,8 +16,10 @@
     "displayNameLongWithArticle":"the Most Holy Synod of Nadeje",
     "displayNameIsOrAre":"is",
 	
-    "logo":"graphics/factions/nadejensinod.png",
-    "crest":"graphics/factions/crest_nadejensinod.png",
+    #"logo":"graphics/factions/hjdk3_wide.png",
+    "logo":"graphics/factions/hajduki_wide.png",
+    #"crest":"graphics/factions/hjdk3.png",
+    "crest":"graphics/factions/hajduki.png",
 
     "shipNamePrefix":"NSS",
     "shipNameSources":{
@@ -31,8 +33,8 @@
     "names":{
         "world":1,
 		"fringe":1,
-		"myth":1,
-		"luddic":1,
+		"myth":2,
+		"luddic":2,
 		"modern":1,
     },  	
 	
@@ -42,26 +44,28 @@
 	# multiplier for how often hulls show up in the faction's fleets
 	"hullFrequency":{
 		"tags":{
-			#"synod":2
+			"synod":2
 		},
 	},
 		
 		# ships the faction gets access to when importing S&W out-of-faction
 	"shipsWhenImporting":{
-		"tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
-		"hulls":["nadejensinod_vrana"
+		"tags":["base_bp", "lowtech_bp"],
+		"hulls":[
 		],
 	},
 	
 	"knownShips":{
 		"tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
-		"hulls":["nadejensinod_vrana"
+		"hulls":["nadejensynod_vrana",
+		         "nadejensynod_sovuljaga"
 		],
 	},
 	
 	"priorityShips":{
 		"tags":["synod"],
-		"hulls":["nadejensinod_vrana"
+		"hulls":["nadejensynod_vrana",
+		         "nadejensynod_sovuljaga"
 		],
 	},
 	
@@ -76,7 +80,7 @@
 		],
 	},
 	"knownWeapons":{
-        "tags":["base_bp", "lowtech_bp", "midline_bp", "synod"],
+        "tags":["base_bp", "lowtech_bp", "midline_bp", "missile_bp", "synod"],
         "weapons":[
         ],
     },
@@ -97,14 +101,28 @@
         "ballistic_rangefinder",
         "nav_relay",
         "converted_hangar",
-        "armoredweapons",
         "augmentedengines",
         "insulatedengine",
         "targetingunit",
+        "advancedshieldemitter",
+        "turretgyros",
+        "autorepair",
+        "expanded_deck_crew",
+        "magazines",
+        "extendedshieldemitter",
+        "frontemitter",
+        "operations_center",
+        "fluxbreakers",
+        "stabilizedshieldemitter",
+        "frontshield",  # makeshift
+        "surveying_equipment",
+        "efficiency_overhaul",
+        "converted_fighterbay",
+        "shield_shunt",
 		],
 	},
 	"illegalCommodities":[
-		"organs", "drugs"
+		"organs", "drugs", "ai_cores"
 	],
 
 	"factionDoctrine":{
@@ -113,8 +131,8 @@
 		"phaseShips":1,
 		
 		"officerQuality":3,
-		"shipQuality":2,
-		"numShips":2,
+		"shipQuality":1,
+		"numShips":3,
 		
 		"shipSize":3,
 		
@@ -128,6 +146,7 @@
 		"commanderSkillsShuffleProbability":0,
 		"commanderSkills":[
 			"crew_training",
+			"carrier_group",
 			"officer_training",
 			"coordinated_maneuvers",
 			"support_doctrine",
@@ -225,14 +244,14 @@
 		"offersCommissions":true,
         "engagesInHostilities":true,
         "buysAICores":true,
-        "AICoreValueMult":0.5,
+        "AICoreValueMult":0.75,
         "AICoreRepMult":2,
         "buysSurveyData":true,
 		"caresAboutAtrocities":true,
 		"punitiveExpeditionData":{
 			"vsCompetitors":false,
 			"vsFreePort":false,
-			"canBombard":false,
+			"canBombard":true,
 			"territorial":true,
 		},
 

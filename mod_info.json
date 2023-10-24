@@ -1,13 +1,13 @@
 {
-    "id":"sevenmere_nadejensinod", # For the convenience of troubleshooters, include your name and the mod name, not just an acronym.
-	"name":"Nadejen Sinod", # Displayed to the player
+    "id":"sevenmere_nadejensynod", # For the convenience of troubleshooters, include your name and the mod name, not just an acronym.
+	"name":"Nadejen Synod", # Displayed to the player
 	"author":"Sevenmere",
     "utility":"false",
-	"version":"0.3.0",
+	"version":"0.5.1",
 	"description":"In a system on the fringe of the sector's Core, an insurgency of the faithful grips with the disappearance of its founder",
     "gameVersion": "0.95.1a-RC6", 
-  	"jars":["jars/NadejenSinod.jar"],
-  	"modPlugin":"sevenmere.nadejensinod.NadejenSinodModPlugin",
+  	"jars":["jars/NadejenSynod.jar"],
+  	"modPlugin":"sevenmere.nadejensynod.NadejenSynodModPlugin",
 	  	"dependencies": [
         #{
         #    "id": "lw_lazylib",

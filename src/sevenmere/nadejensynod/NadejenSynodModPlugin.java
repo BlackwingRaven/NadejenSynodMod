@@ -1,37 +1,21 @@
-package sevenmere.nadejensinod;
+package sevenmere.nadejensynod;
 
 import java.awt.Color;
-import static java.lang.Math.random;
 
 import java.util.*;
 
-import org.apache.log4j.Logger;
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.PluginPick;
-import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.impl.campaign.ids.*;
-import com.fs.starfarer.api.campaign.JumpPointAPI;
-import com.fs.starfarer.api.campaign.LocationAPI;
-import com.fs.starfarer.api.campaign.OrbitAPI;
 import com.fs.starfarer.api.campaign.CustomCampaignEntityAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
-import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
-import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
-import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
-import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
 import com.fs.starfarer.api.util.Misc;
 
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.campaign.econ.MarketConditionAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
@@ -39,7 +23,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 
 import com.fs.starfarer.api.campaign.FactionAPI;
 
-public class NadejenSinodModPlugin extends BaseModPlugin {
+public class NadejenSynodModPlugin extends BaseModPlugin {
     @Override
     public void onApplicationLoad() throws Exception {
         super.onApplicationLoad();
@@ -56,27 +40,51 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
 
 
-        FactionAPI synod = sector.getFaction("nadejensinod");
-        //friendly/neutral
-        synod.setRelationship("persean",0.65f);
+        FactionAPI synod = sector.getFaction("nadejensynod");
+        //friendly-neutral
+        synod.setRelationship("nadejensynod_tanjanfellowship",1f);
+        synod.setRelationship("persean",0.6f);
         synod.setRelationship("independent",0.3f);
-        synod.setRelationship("pirates",0.15f);
         synod.setRelationship("player",0f);
         //negative
         synod.setRelationship("hegemony",-0.2f);
         synod.setRelationship("sindrian_diktat",-0.2f);
         synod.setRelationship("lions_guard",-0.2f);
+        synod.setRelationship("pirates",-0.2f);
         //enemy
-        synod.setRelationship("luddic_church",-0.4f);
-        synod.setRelationship("knights_of_ludd", -0.4f);
-        synod.setRelationship("luddic_path",-0.65f);
-        synod.setRelationship("tritachyon",-0.65f);
+        synod.setRelationship("luddic_church",-0.6f);
+        synod.setRelationship("knights_of_ludd", -0.6f);
+        synod.setRelationship("luddic_path",-0.6f);
+        synod.setRelationship("tritachyon",-0.6f);
         //nonstandart
         synod.setRelationship("derelict", -0.5f);
         synod.setRelationship("remnant", -0.5f);
         synod.setRelationship("omega", -0.5f);
         //mod
-        synod.setRelationship("kadur_remnant",0.15f);
+        //synod.setRelationship("kadur_remnant",0.15f);
+
+        FactionAPI fellows = sector.getFaction("nadejensynod_tanjanfellowship");
+        //friendly-neutral
+        fellows.setRelationship("pirates",1f);
+        fellows.setRelationship("nadejensynod",1f);
+        fellows.setRelationship("persean",0.2f);
+        //negative
+        fellows.setRelationship("player",-0.2f);
+        fellows.setRelationship("independent",-0.2f);
+        //enemy
+        fellows.setRelationship("hegemony",-0.8f);
+        fellows.setRelationship("sindrian_diktat",-0.8f);
+        fellows.setRelationship("lions_guard",-0.8f);
+        fellows.setRelationship("luddic_church",-0.8f);
+        fellows.setRelationship("knights_of_ludd", -0.8f);
+        fellows.setRelationship("luddic_path",-0.8f);
+        fellows.setRelationship("tritachyon",-0.8f);
+        //nonstandart
+        fellows.setRelationship("derelict", -0.5f);
+        fellows.setRelationship("remnant", -0.5f);
+        fellows.setRelationship("omega", -0.5f);
+        //mod
+        //fellows.setRelationship("kadur_remnant",0.15f);
 
 
 
@@ -113,16 +121,16 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
 
         PlanetAPI ElifPlanet = system.addPlanet("elif", NadejeStar, "Elif", "gas_giant",0,250,3500,60);
         Misc.initConditionMarket(ElifPlanet);
-        ElifPlanet.setFaction("nadejensinod");
+        ElifPlanet.setFaction("nadejensynod");
 
-        MarketAPI ElifMarket = Global.getFactory().createMarket("elif_marketid", ElifPlanet.getName(),3);
-        ElifMarket.setFactionId("nadejensinod");
+        MarketAPI ElifMarket = Global.getFactory().createMarket("elif_marketid", ElifPlanet.getName(),4);
+        ElifMarket.setFactionId("nadejensynod");
         ElifMarket.setPlanetConditionMarketOnly(false);
         ElifMarket.addCondition(Conditions.HOT);
         ElifMarket.addCondition(Conditions.HIGH_GRAVITY);
         ElifMarket.addCondition(Conditions.VOLATILES_PLENTIFUL);
-        ElifMarket.addCondition(Conditions.POPULATION_3);
-        ElifMarket.addCondition("nadejensinod_nadejenmajority");
+        ElifMarket.addCondition(Conditions.POPULATION_4);
+        ElifMarket.addCondition("nadejensynod_nadejenmajority");
         ElifMarket.setPrimaryEntity(ElifPlanet);
         ElifPlanet.setMarket(ElifMarket);
         ElifMarket.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
@@ -145,10 +153,10 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
 
         PlanetAPI SelinPlanet = system.addPlanet("selin", ElifPlanet, "Selin", "arid", 0, 85, 600, 17); //id, focus entity (i.e. star id), name, class, angle, radius, distance from focus, orbiting period
         Misc.initConditionMarket(SelinPlanet);
-        SelinPlanet.setFaction("nadejensinod");
+        SelinPlanet.setFaction("nadejensynod");
 
         MarketAPI SelinMarket = Global.getFactory().createMarket("selin_marketId", SelinPlanet.getName(), 5);
-        SelinMarket.setFactionId("nadejensinod");
+        SelinMarket.setFactionId("nadejensynod");
         SelinMarket.setPlanetConditionMarketOnly(false); //This market doesn't just represent planet conditions.
         SelinMarket.addCondition(Conditions.HABITABLE);
         SelinMarket.addCondition(Conditions.HOT);
@@ -158,7 +166,7 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         SelinMarket.addCondition(Conditions.ORGANICS_TRACE);
         SelinMarket.addCondition(Conditions.FARMLAND_POOR);
         SelinMarket.addCondition(Conditions.POPULATION_5);
-        SelinMarket.addCondition("nadejensinod_nadejenmajority");
+        SelinMarket.addCondition("nadejensynod_nadejenmajority");
         SelinMarket.setPrimaryEntity(SelinPlanet); //Tell the "market" that it's on our planet.
         SelinPlanet.setMarket(SelinMarket); //Likewise, tell our planet that it has a market.
         SelinMarket.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
@@ -167,7 +175,8 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         SelinMarket.addIndustry(Industries.POPULATION);
         SelinMarket.addIndustry(Industries.SPACEPORT);
         SelinMarket.addIndustry(Industries.STARFORTRESS_MID);
-        SelinMarket.addIndustry(Industries.ORBITALWORKS, Collections.singletonList(Items.CORRUPTED_NANOFORGE));
+        //SelinMarket.addIndustry(Industries.ORBITALWORKS, Collections.singletonList(Items.CORRUPTED_NANOFORGE));
+        SelinMarket.addIndustry("yanicharheavyindustry");
         SelinMarket.addIndustry(Industries.HIGHCOMMAND);
         SelinMarket.addIndustry(Industries.HEAVYBATTERIES);
         SelinMarket.addIndustry(Industries.FUELPROD);
@@ -183,29 +192,29 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         );
 
 
-        CustomCampaignEntityAPI station1 = system.addCustomEntity(
+        CustomCampaignEntityAPI YanicharStation = system.addCustomEntity(
                 "yanichar", //id
                 "Yanichar Station", //display name
                 "station_side02", //types are found in data/config/custom_entities.json
-                "nadejensinod"
+                "nadejensynod"
         );
-        station1.setCircularOrbitPointingDown(
+        YanicharStation.setCircularOrbitPointingDown(
                 SelinPlanet,
                 0, //Angle
                 223, //orbit radius
                 23 //orbit period
         );
-        station1.setRadius(50);
-        SelinMarket.getConnectedEntities().add(station1);
-        station1.setMarket(SelinMarket);
+        YanicharStation.setRadius(50);
+        SelinMarket.getConnectedEntities().add(YanicharStation);
+        YanicharStation.setMarket(SelinMarket);
 
 
         PlanetAPI ZofiaPlanet = system.addPlanet("zofia", NadejeStar, "Zofia", "terran-eccentric", 75, 110, 4700, 90);
         Misc.initConditionMarket(ZofiaPlanet);
-        ZofiaPlanet.setFaction("nadejensinod");
+        ZofiaPlanet.setFaction("nadejensynod");
 
-        MarketAPI ZofiaMarket = Global.getFactory().createMarket("zofia_marketId", ZofiaPlanet.getName(), 7);
-        ZofiaMarket.setFactionId("nadejensinod");
+        MarketAPI ZofiaMarket = Global.getFactory().createMarket("zofia_marketId", ZofiaPlanet.getName(), 8);
+        ZofiaMarket.setFactionId("nadejensynod");
         ZofiaMarket.setPlanetConditionMarketOnly(false);
         ZofiaMarket.addCondition(Conditions.HABITABLE);
         ZofiaMarket.addCondition(Conditions.EXTREME_WEATHER);
@@ -213,8 +222,8 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         ZofiaMarket.addCondition(Conditions.RARE_ORE_SPARSE);
         ZofiaMarket.addCondition(Conditions.ORGANICS_PLENTIFUL);
         ZofiaMarket.addCondition(Conditions.FARMLAND_BOUNTIFUL);
-        ZofiaMarket.addCondition("nadejensinod_nadejenmajority");
-        ZofiaMarket.addCondition(Conditions.POPULATION_7);
+        ZofiaMarket.addCondition("nadejensynod_nadejenmajority");
+        ZofiaMarket.addCondition(Conditions.POPULATION_8);
         ZofiaMarket.setPrimaryEntity(ZofiaPlanet);
         ZofiaPlanet.setMarket(ZofiaMarket);
         ZofiaMarket.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
@@ -222,7 +231,7 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
 
         ZofiaMarket.addIndustry(Industries.POPULATION);
         ZofiaMarket.addIndustry(Industries.SPACEPORT);
-        ZofiaMarket.addIndustry(Industries.GROUNDDEFENSES);
+        ZofiaMarket.addIndustry(Industries.HEAVYBATTERIES);
         ZofiaMarket.addIndustry(Industries.FARMING);
         ZofiaMarket.addIndustry(Industries.MINING);
         ZofiaMarket.addIndustry(Industries.LIGHTINDUSTRY);
@@ -239,12 +248,13 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         );
 
 
-        PlanetAPI TanjaPlanet = system.addPlanet("tanja", NadejeStar, "Tanja", "frozen3",85,75,7250,172);
+        PlanetAPI TanjaPlanet = system.addPlanet("tanja", NadejeStar, "Tanja", "frozen3",85,75,7750,182);
         Misc.initConditionMarket(TanjaPlanet);
-        TanjaPlanet.setFaction(Factions.PIRATES);
+        TanjaPlanet.setFaction("nadejensynod_tanjanfellowship");
+        //TanjaPlanet.setFaction("pirates");
 
-        MarketAPI TanjaMarket = Global.getFactory().createMarket("tanja_marketid", TanjaPlanet.getName(),4);
-        TanjaMarket.setFactionId(Factions.PIRATES);
+        MarketAPI TanjaMarket = Global.getFactory().createMarket("tanja_marketid", TanjaPlanet.getName(),5);
+        TanjaMarket.setFactionId("nadejensynod_tanjanfellowship");
         TanjaMarket.setPlanetConditionMarketOnly(false);
         TanjaMarket.addCondition(Conditions.COLD);
         TanjaMarket.addCondition(Conditions.THIN_ATMOSPHERE);
@@ -253,7 +263,8 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         TanjaMarket.addCondition(Conditions.ORE_RICH);
         TanjaMarket.addCondition(Conditions.RARE_ORE_ULTRARICH);
         TanjaMarket.addCondition(Conditions.RUINS_SCATTERED);
-        TanjaMarket.addCondition(Conditions.POPULATION_4);
+        TanjaMarket.addCondition(Conditions.POPULATION_5);
+        TanjaMarket.addCondition("nadejensynod_nadejenpatriotism");
         TanjaMarket.setPrimaryEntity(TanjaPlanet);
         TanjaPlanet.setMarket(TanjaMarket);
         TanjaMarket.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
@@ -264,7 +275,7 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         TanjaMarket.addIndustry(Industries.WAYSTATION);
         TanjaMarket.addIndustry(Industries.MINING);
         TanjaMarket.addIndustry(Industries.LIGHTINDUSTRY);
-        TanjaMarket.addIndustry(Industries.GROUNDDEFENSES);
+        TanjaMarket.addIndustry(Industries.HEAVYBATTERIES);
         TanjaMarket.addIndustry(Industries.PATROLHQ);
 
         TanjaMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
@@ -310,25 +321,25 @@ public class NadejenSinodModPlugin extends BaseModPlugin {
         system.autogenerateHyperspaceJumpPoints(true, true);
 
         //descriptions
-        //NadejeStar.setCustomDescriptionId("nadejensinod_nadeje");
-        ElifPlanet.setCustomDescriptionId("nadejensinod_elif");
-        SelinPlanet.setCustomDescriptionId("nadejensinod_selin");
-        ZofiaPlanet.setCustomDescriptionId("nadejensinod_zofia");
-        station1.setCustomDescriptionId("nadejensinod_yanichar");
-        TanjaPlanet.setCustomDescriptionId("nadejensinod_tanja");
+        //NadejeStar.setCustomDescriptionId("nadejensynod_nadeje");
+        ElifPlanet.setCustomDescriptionId("nadejensynod_elif");
+        SelinPlanet.setCustomDescriptionId("nadejensynod_selin");
+        ZofiaPlanet.setCustomDescriptionId("nadejensynod_zofia");
+        YanicharStation.setCustomDescriptionId("nadejensynod_yanichar");
+        TanjaPlanet.setCustomDescriptionId("nadejensynod_tanja");
 
 
 
         SectorEntityToken relay = system.addCustomEntity("nadeje_relay", // unique id
                 "Nadeje Relay", // name - if null, defaultName from custom_entities.json will be used
                 "comm_relay", // type of object, defined in custom_entities.json
-                "nadejensinod"); // faction
-        relay.setCircularOrbitPointingDown(NadejeStar, 60, 8500, 280);
+                "nadejensynod"); // faction
+        relay.setCircularOrbitPointingDown(NadejeStar, 60, 10500, 310);
 
         SectorEntityToken sensors = system.addCustomEntity("nadeje_array", // unique id
                 "Nadeje Sensor Array", // name - if null, defaultName from custom_entities.json will be used
-                "sensor_array", // type of object, defined in custom_entities.json
-                "nadejensinod"); // faction
+                "sensor_array_makeshift", // type of object, defined in custom_entities.json
+                "nadejensynod"); // faction
         sensors.setCircularOrbitPointingDown(NadejeStar, 350, 6000, 260);
 
 
